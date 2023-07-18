@@ -5,7 +5,11 @@ books = {"The Handmaids Tale":"Margaret Attwood",
          "The Last Wish":"Andrzej Sapkowski", 
          "Sword of Destiny":"Andrzej Sapkowski",
          "Blood of Elves": "Andrzej Sapkowski", 
-         "The Time of Contempt":"Andrzej Sapkowski"}
+         "The Time of Contempt":"Andrzej Sapkowski",
+         "Baptism of Fire":"Andrzej Sapkowski",
+         "The Tower of Swallows":"Andrzej Sapkowski",
+         "The Lady of the Lake":"Andrzej Sapkowski",
+         "Season of Storms":"Andrzej Sapkowski"}
 
 # ask for authors name
 booksvar = input("Please insert authors name: ")
