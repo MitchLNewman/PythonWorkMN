@@ -24,3 +24,11 @@ else:
     print("Input temp in right format.")
     quit()
 print("The temperature in", o_convention, "is", result, "degrees.")
+
+# Exercise 3 guess a number between 1 and 9 
+
+import random 
+targetNum, guessNum = random.randint(1, 10), 0
+while targetNum != guessNum:
+    guessNum = int(input("Guess a number between 1 and 10 until you get it right: "))
+print("Well Done! You got it right")
