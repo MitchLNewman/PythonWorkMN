@@ -32,3 +32,16 @@ targetNum, guessNum = random.randint(1, 10), 0
 while targetNum != guessNum:
     guessNum = int(input("Guess a number between 1 and 10 until you get it right: "))
 print("Well Done! You got it right")
+
+# Exercise 4  Construct a specified pattern, using a nested for loop
+
+n=5
+for i in range(n):
+    for j in range(i):
+        print('* ', end="")
+    print("")
+
+for i in range(n,0,-1):
+    for j in range(i):
+        print('* ', end="")
+    print('')
