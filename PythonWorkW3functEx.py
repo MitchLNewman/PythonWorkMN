@@ -37,3 +37,13 @@ def string_reverse(str1):
         index = index - 1
     return rstr1
 print(string_reverse('HelloWorld'))
+
+# Exercise 5 calculate a factorial 
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+n = int(input("Input a number to calculate the factoiral: "))
+print(factorial(n))
