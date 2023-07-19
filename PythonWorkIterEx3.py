@@ -45,3 +45,11 @@ for i in range(n,0,-1):
     for j in range(i):
         print('* ', end="")
     print('')
+
+# Exercise 5 Reverse a word 
+
+word = input("Input a word that you would like reversed: ")
+
+for char in range(len(word) - 1, -1, -1):
+    print(word[char], end="")
+print("\n")
