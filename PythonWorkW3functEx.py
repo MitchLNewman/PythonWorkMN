@@ -47,3 +47,12 @@ def factorial(n):
         return n * factorial(n-1)
 n = int(input("Input a number to calculate the factoiral: "))
 print(factorial(n))
+
+#  Exercise 6 Check whether a number falls within a given range
+
+def test_range(n):
+    if n in range(3,9):
+        print( " %s is in the range"%str(n))
+    else :
+        print("The number is outside the given range.")
+test_range(5)
