@@ -21,5 +21,7 @@ elif calc >= 50:
         grade = "D"
 elif calc >= 40:
         grade = "E"
+elif calc < 40:
+        grade = "You Failed"
 
 print(finalgrade(name, homework, assessment, finalExam, grade))
