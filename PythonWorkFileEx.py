@@ -1,5 +1,3 @@
-file = open("teams.txt", "r")
-
 n = ["ManUtd", "ManCity", "Arsenal", "Chelsea","Liverpool"]
 
 with open("teams.txt", "w") as file:
