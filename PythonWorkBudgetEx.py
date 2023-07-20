@@ -42,7 +42,7 @@ spentC = int(
 
 clothing.withdraw(spentC)
 
-print("Your remaining food budget for this month is £" + str(clothing.budget))
+print("Your remaining clothing budget for this month is £" + str(clothing.budget))
 
 # Entainment budget Inputs 
 
@@ -57,5 +57,5 @@ print("Your remaining entertainment budget for this month is £" + str(entertain
 
 entertainment.transfer(50, clothing)
 
-print("After transferring money from your entertainment account, your clothing account budget now is: £")
+print("After transferring money from your entertainment account, your clothing account budget now is: £" + str(clothing.budget))
 
