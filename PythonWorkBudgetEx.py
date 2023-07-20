@@ -19,9 +19,9 @@ class Budget:
             obj.deposit(amount)
             self.withdraw(amount)
 
-food = Budget(200, "Food")
-clothing = Budget(150, "Clothing")
-entertainment = Budget(100, "Entertainment")
+food = Budget(300, "Food")
+clothing = Budget(200, "Clothing")
+entertainment = Budget(250, "Entertainment")
 
 # Food Budget inputs
 print("Your food budget for this month is £" + str(food.budget))
@@ -54,3 +54,8 @@ spentE = int(
 entertainment.withdraw(spentE)
 
 print("Your remaining entertainment budget for this month is £" + str(entertainment.budget))
+
+entertainment.transfer(50, clothing)
+
+print("After transferring money from your entertainment account, your clothing account budget now is: £")
+
