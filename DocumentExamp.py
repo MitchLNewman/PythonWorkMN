@@ -7,7 +7,7 @@ def factorial(x: int) -> int:
         result *= i
     return result
 
-# if __name__ == "__main__" stops print statements from automatically being executed by interpreter
+# if __name__ == "__main__" stops print statements from automatically being executed when this file is imported
 
 if __name__ == "__main__":
     print(factorial(3))
