@@ -23,6 +23,6 @@ input1.grid(row=1, column=1)
 submit = tkinter.Button(root, text = "Read File", command = readFile)
 submit.grid(row=1, column=2)
 
-# if statement stops commands from being executed automatically 
+# if statement stops commands from being executed
 if __name__ == "__main__":
     root.mainloop()
