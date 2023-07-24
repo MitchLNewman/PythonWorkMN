@@ -12,3 +12,5 @@ if __name__ == "__main__":
     print(factorial(5))
     print(factorial(10))
 
+# "python3 -m pydoc DocumentExamp" - shows documentation for this code
+# "wrote DcoumentExamp.html" - Writes documentation to Html
