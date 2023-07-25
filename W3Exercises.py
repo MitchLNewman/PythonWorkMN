@@ -37,3 +37,19 @@ print('Tuple : ',tuple)
 filename = input("Input the Filename: ")
 f_extns = filename.split(".")
 print ("The extension of the file is : " + repr(f_extns[-1]))
+
+# Python Basics Exercise 8
+color_list = ["Red","Green","White" ,"Black"]
+print( "%s %s"%(color_list[0],color_list[-1]))
+
+# Python Basics Exercise 9
+examDate = (11, 12, 2014)
+print("The exam will start from: %i/%i/%i " %examDate)
+
+# Python Basics Exercise 10 
+# %s is used to concatenate strings together. Is a palceholder for a string
+a = int(input("Input an integer : "))
+n1 = int( "%s" % a )
+n2 = int( "%s%s" % (a,a) )
+n3 = int( "%s%s%s" % (a,a,a) )
+print (n1+n2+n3)
