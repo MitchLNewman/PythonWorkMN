@@ -1,66 +1,84 @@
-from typing import List
+'''
+Create a class Book. Each book object should have the attributes: 
+- title
+- author (default unknown) 
+- number of pages
+- genre
+- ISBN. 
+The class should define the following methods:
+- __init__ to set the attributes described above
+- __str__ to print a description of the book
+- a search method which returns all books by a given author (requires tracking of objects) - if there are no books by the given author return an empty list
+- a method to check the validity of a given ISBN-13 - should return true if the ISBN is valid, false otherwise
+As an additional stretch goal, create 2 subclasses for specific 
+genres and override the __init__ method and __str__ methods appropriately
+'''
 
 
-class Book:
-    def __init__(self, author, title, pages, isbn):
-        self.id = None
-        self.author = author
+class Book():
+    books = []
+
+    def __init__(self, title, pages, isbn, genre, author="Unknown"):
+        '''
+        A method to initialize a book object with a title, number of pages, ISBN, genre, and author
+        '''
         self.title = title
         self.pages = pages
         self.isbn = isbn
+        self.genre = genre
+        self.author = author
+        Book.books.append(self)
 
-    @property
-    def json(self):
-        return dict(
-            _id=self.id,
-            author=self.author,
-            title=self.title,
-            pages=self.pages,
-            isbn=self.isbn
-        )
+    @staticmethod
+    def valid_isbn(isbn):
+        '''
+        A method to check the validity of a given ISBN-13 - should return true if the ISBN is valid, false otherwise
+        '''
+        isbn = isbn.replace("-", "")
 
-    @classmethod
-    def from_csv(cls, line):
-        return cls(*line.split(','))
+        if not isbn.isdigit() or len(isbn) != 13:
+            return False
 
-    @property
-    def csv(self):
-        return f"{self.author},{self.title}"
+        check_digit = int(isbn[-1])
+        isbn = isbn[:-1]
 
+        # Repeating pattern of weights [1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3]
+        weight = [1, 3] * 6
+        digits_sum = sum(int(digit) * w for digit, w in zip(isbn, weight))
+        check_sum = (10 - digits_sum % 10) % 10
 
-class BookList:
-    def __init__(self, *args):
-        self._books = list(args)
+        return check_sum == check_digit
 
-    def get(self, book_id) -> Book:
-        return self.filter(id=book_id)[0]
+    @staticmethod
+    def search(author):
+        '''
+        A method to search for all books by a given author
+        '''
+        books_by_author = []
 
-    def delete(self, book_id) -> None:
-        self._books.pop(book_id - 1)
-        self.update_ids()
+        for book in Book.books:
+            if book.author == author:
+                books_by_author.append(book)
+        return books_by_author
 
-    def update(self, book_id, **kwargs) -> Book:
-        book = self.get(book_id)
+    @staticmethod
+    def get_books():
+        return Book.books
+    
+    @staticmethod
+    def search_book(title):
+        '''
+        A method to search for a single book by title
+        '''
+        for book in Book.books:
+            if book.title == title:
+                return book
+            else:
+                return "Book not found!"
 
-        for key, value in kwargs.items():
-            setattr(book, key, value)
-
-        return book
-
-    def update_ids(self) -> None:
-        for no, book in enumerate(self._books):
-            book.id = no + 1
-
-    def create(self, *args, **kwargs) -> Book:
-        book = Book(*args, **kwargs)
-        self._books.append(book)
-        self.update_ids()
-        return book
-
-    def filter(self, **kwargs) -> List[Book]:
-        valid = list(self._books)
-
-        for key, value in kwargs.items():
-            valid = [book for book in valid if getattr(book, key) == value]
-
-        return valid
+    def __str__(self):
+        '''
+        A method to print a description of the book
+        '''
+        output = f"Title: {self.title}\nAuthor: {self.author}\nGenre: {self.genre}\nNumber of Pages: {self.pages}\nISBN: {self.isbn}"
+        return output
